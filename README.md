@@ -14,5 +14,4 @@ TO DO:
 ...  
 
 Video Preview :  
-[![Watch the video]https://github.com/user-attachments/assets/a9ca4729-8728-408f-8269-cc5f097fca60
-
+<video src="https://github.com/user-attachments/assets/a9ca4729-8728-408f-8269-cc5f097fca60" width="352" height="720"></video>
