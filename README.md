@@ -13,4 +13,4 @@ What I've implemented :
 *Stars  
 
 Video Preview :  
-<video src="[https://github.com/user-attachments/assets/a9ca4729-8728-408f-8269-cc5f097fca60](https://github.com/user-attachments/assets/5fa7620f-965d-49ec-b164-26183050fb6a)" width="352" height="720"></video>
+<video src="https://github.com/user-attachments/assets/5fa7620f-965d-49ec-b164-26183050fb6a" width="352" height="720"></video>
