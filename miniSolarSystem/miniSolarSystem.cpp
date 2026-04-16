@@ -73,12 +73,12 @@ void initBodies() {
 	earth.size = 50.0f;
 	earth.position = glm::vec3(0.0f, 0.0f, -1000.0f);
 	earth.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
-	earth.rot_speed = 20.0f;
+	earth.rot_speed = 60.0f;
 	earth.orbit = glm::vec3(0.0f, 1.0f, 0.0f);
 	earth.orbit_speed = 5.0f;
 	earth.color = glm::vec4(0.2f, 0.4f, 1.0f, 1.0f);
 	
-	sun.size = 800;
+	sun.size = 5000;
 	sun.position = glm::vec3(0.0f, 0.0f, 0.0f);
 	sun.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
 	sun.rot_speed = 5.0f;
@@ -98,7 +98,7 @@ void initBodies() {
 	venus.size = earth.size * 0.95;
 	venus.position = glm::vec3(0.0f, 0.0f, -720.0f);
 	venus.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
-	venus.rot_speed = 5.0f;
+	venus.rot_speed = 0.25f;
 	venus.orbit = glm::vec3(0.059f, 0.998f, 0.0f);
 	venus.orbit_speed = 7.0f;
 	venus.color = glm::vec4(0.9f, 0.8f, 0.6f, 1.0f);
@@ -106,7 +106,7 @@ void initBodies() {
 	mars.size = earth.size * 0.53;
 	mars.position = glm::vec3(0.0f, 0.0f, -1520.0f);
 	mars.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
-	mars.rot_speed = 25.0f;
+	mars.rot_speed = 62.5f;
 	mars.orbit = glm::vec3(0.032f, 0.999f, 0.0f);
 	mars.orbit_speed = 2.5f;
 	mars.color = glm::vec4(0.8f, 0.4f, 0.3f, 1.0f);
@@ -115,7 +115,7 @@ void initBodies() {
 	jupiter.size = earth.size * 11.21;
 	jupiter.position = glm::vec3(0.0f, 0.0f, -2400.0f);
 	jupiter.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
-	jupiter.rot_speed = 15.0f;
+	jupiter.rot_speed = 180.0f;
 	jupiter.orbit = glm::vec3(0.022f, 0.999f, 0.0f);
 	jupiter.orbit_speed = 0.5f;
 	jupiter.color = glm::vec4(0.8f, 0.7f, 0.5f, 1.0f);
@@ -124,8 +124,8 @@ void initBodies() {
 	saturn.size = earth.size * 9.45;
 	saturn.position = glm::vec3(0.0f, 0.0f, -4250.0f);
 	saturn.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
-	saturn.rot_speed = 10.0f;
-	saturn.orbit = glm::vec3(0.043f, 0.999f, 0.0f);
+	saturn.rot_speed = 167.0f;
+	saturn.orbit = glm::vec3(0.0f, 1.0f, 0.0f);
 	saturn.orbit_speed = 0.25f;
 	saturn.color = glm::vec4(0.9f, 0.8f, 0.5f, 1.0f);
 
@@ -133,8 +133,8 @@ void initBodies() {
 	uranus.size = earth.size * 4.01;
 	uranus.position = glm::vec3(0.0f, 0.0f, -9000.0f);
 	uranus.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
-	uranus.rot_speed = 30.0f;
-	uranus.orbit = glm::vec3(0.014f, 0.999f, 0.0f);
+	uranus.rot_speed = 120.0f;
+	uranus.orbit = glm::vec3(0.0f, 1.0f, 0.0f);
 	uranus.orbit_speed = 0.05f;
 	uranus.color = glm::vec4(0.6f, 0.9f, 0.9f, 1.0f);
 
@@ -142,7 +142,7 @@ void initBodies() {
 	neptune.size = earth.size * 3.88f;
 	neptune.position = glm::vec3(0.0f, 0.0f, -12000.0f);
 	neptune.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
-	neptune.rot_speed = 30.0f;
+	neptune.rot_speed = 110.0f;
 	neptune.orbit = glm::vec3(0.031f, 0.999f, 0.0f);
 	neptune.orbit_speed = 0.025f;
 	neptune.color = glm::vec4(0.3f, 0.5f, 1.0f, 1.0f);
@@ -151,7 +151,7 @@ void initBodies() {
 	pluton.size = earth.size * 0.1;
 	pluton.position = glm::vec3(0.0f, 0.0f, -18000.0f);
 	pluton.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
-	pluton.rot_speed = 30.0f;
+	pluton.rot_speed = 25.0f;
 	pluton.orbit = glm::vec3(0.294f, 0.955f, 0.0f);
 	pluton.orbit_speed = 0.005f;
 	pluton.color = glm::vec4(0.7f, 0.6f, 0.5f, 1.0f);
@@ -160,7 +160,7 @@ void initBodies() {
 }
 
 void keyboardInput(GLFWwindow* window,body * bodies) {
-	const float cameraSpeed = 160.0f * deltaTime;
+	const float cameraSpeed = 800.0f * deltaTime;
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
 		glfwSetWindowShouldClose(window, true);
 	}
@@ -183,27 +183,8 @@ void keyboardInput(GLFWwindow* window,body * bodies) {
 		cameraPos -= cameraUp * cameraSpeed;
 	}
 	if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS) {
-		cameraPos = bodies[0].position+glm::vec3(0.0f,500.0f,0.0f);
+		cameraPos = bodies[0].position+glm::vec3(0.0f,100.0f,0.0f);
 	}
-	// Won't teleport you to a planet itself, because we only translate them to their positions, while their starting positions(to which we teleport) remain the same.
-	//if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS) {
-	//	cameraPos = bodies[1].position + glm::vec3(0.0f, 500.0f, 0.0f);
-	//}
-	//if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS) {
-	//	cameraPos = bodies[2].position + glm::vec3(0.0f, 500.0f, 0.0f);
-	//}
-	//if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS) {
-	//	cameraPos = bodies[3].position + glm::vec3(0.0f, 500.0f, 0.0f);
-	//}
-	//if (glfwGetKey(window, GLFW_KEY_5) == GLFW_PRESS) {
-	//	cameraPos = bodies[4].position + glm::vec3(0.0f, 500.0f, 0.0f);
-	//}
-	//if (glfwGetKey(window, GLFW_KEY_6) == GLFW_PRESS) {
-	//	cameraPos = bodies[5].position + glm::vec3(0.0f, 500.0f, 0.0f);
-	//}
-	//if (glfwGetKey(window, GLFW_KEY_7) == GLFW_PRESS) {
-	//	cameraPos = bodies[6].position + glm::vec3(0.0f, 500.0f, 0.0f);
-	//}
 }
 
 int main() {
@@ -278,26 +259,51 @@ int main() {
 		std::vector<glm::vec3> voxels;
 
 
-		int arr_pos = 0;
+		
 		while (1) {
 			if (x * x + y * y + z * z < bodySize) {
 				voxels.emplace_back(x, y, z);
+				voxels.emplace_back(x, y, -z);
+				voxels.emplace_back(x, -y, z);
+				voxels.emplace_back(x, -y, -z);
+				voxels.emplace_back(-x, y, z);
+				voxels.emplace_back(-x, y, -z);
+				voxels.emplace_back(-x, -y, z);
+				voxels.emplace_back(-x, -y, -z);
 			}
 			x++;
 
-			if (x > startPos * -1) {
+			if (x > 0) {
 				x = startPos;
 				y++;
-				if (y > startPos * -1) {
+				if (y > 0) {
 					y = startPos;
 					z++;
-					if (z > startPos * -1) {
+					if (z > 0) {
+						float degrees = 0;
+						float step = 360.0f / bodies[i].size;
+						if (i == 6 or i == 7) {
+							while (degrees <= 360.0f) {
+									// this will be our little secret, okay ? c:
+									float sinVal = sin(glm::radians(degrees));
+									float cosVal = cos(glm::radians(degrees));
+									voxels.emplace_back(bodySize/3 * sinVal, 0, bodySize/3 * cosVal);
+									voxels.emplace_back(bodySize/3.5 * sinVal, 0, bodySize/3.5 * cosVal);
+									voxels.emplace_back(bodySize/4 * sinVal, 0, bodySize/4 * cosVal);
+									voxels.emplace_back(bodySize/4.5 * sinVal, 0, bodySize/4.5 * cosVal);
+									voxels.emplace_back(bodySize/5 * sinVal, 0, bodySize/5 * cosVal);
+									voxels.emplace_back(bodySize/5.5 * sinVal, 0, bodySize/5.5 * cosVal);
+									degrees+=step;
+							}
+
+						}
 						bodies[i].voxelPos = std::move(voxels);
 						break;
 					}
 				}
 			}
 		}
+
 	}
 	
 	unsigned int VBO, VAO,EBO;
@@ -345,24 +351,13 @@ int main() {
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 
-	
-
-
 	glm::mat4 projection = glm::mat4(1.0f); 
 	projection = glm::perspective(glm::radians(FOV), (float)width / (float)height,0.1f,14000.0f);
-
 
 	glEnable(GL_DEPTH_TEST);
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	glfwSetCursorPosCallback(window, mouse_callback);
-
-	//Hm.... 
-	//glEnable(GL_CULL_FACE);
-	//glFrontFace(GL_BACK);
-
-
-
-
+	
 	//render loop 
 	while (!glfwWindowShouldClose(window)) {
 		currentFrame = glfwGetTime();
@@ -384,9 +379,11 @@ int main() {
 
 			glm::mat4 model = glm::mat4(1.0f);
 			//orbit
-			model = glm::rotate(model, glm::radians((float)glfwGetTime()) * bodies[i].orbit_speed * 10, bodies[i].orbit);
+			model = glm::rotate(model, glm::radians((float)glfwGetTime()) * bodies[i].orbit_speed * 1, bodies[i].orbit);
 			//distance
 			model = glm::translate(model, glm::vec3(bodies[i].position.x, bodies[i].position.y, bodies[i].position.z));
+			//self rotation
+			model = glm::rotate(model, glm::radians((float)glfwGetTime()) * bodies[i].rot_speed, bodies[i].orbit);
 			shader.setMatrix4fv("model", model);
 			shader.setMatrix4fv("view", view);
 			shader.setMatrix4fv("projection", projection);
@@ -406,4 +403,3 @@ int main() {
     glfwTerminate();
     return 0;
 }
-
